@@ -1,0 +1,50 @@
+# Docker compose files used for testing in container
+version: '3'
+
+services:
+  server-engine:
+    image: server-engine
+    container_name: server-engine
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - COMMIT_HASH=COMMIT_HASH
+    depends_on:
+      - db
+    links:
+      - db:db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: postgres
+      DB_PORT: 5432
+      DB_TYPE: postgres
+      PORT: 4000
+      HOST: localhost
+      NODE_ENV: production
+    ports:
+      - 4000:3000
+    networks:
+      - server_engine_network
+
+  db:
+    image: postgres:12-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - server_engine_network
+
+networks:
+  server_engine_network:
+
+volumes:
+  pgdata: {}

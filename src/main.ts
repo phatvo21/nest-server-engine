@@ -1,8 +1,4 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { bootstrap } from './utils';
+import { BaseModule } from './modules';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-}
-bootstrap();
+bootstrap(BaseModule, { title: 'Server Engine API', server: '/ws-server-engine' });
