@@ -1,23 +1,23 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
-import { BaseModule } from "../src/modules";
+import { generateMockServer, generateRequest, RequestType, ServerType } from '@app/engine/utils/database-test.util';
+
+import { BaseModule } from '../src/modules';
 
 describe('HealthController (e2e)', () => {
-  let app: INestApplication;
+  let server: ServerType;
+  let request: RequestType;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [BaseModule],
-    }).compile();
+  beforeAll(async () => {
+    server = await generateMockServer([BaseModule]);
+    request = generateRequest(server);
+  });
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
+  afterAll(async () => {
+    await server.app.close();
   });
 
   it('/ (GET)', async () => {
-    const result = await request(app.getHttpServer()).get('/health');
-    expect(result.body.status).toEqual("OK");
+    const result = await request.agent.get('/health');
+    expect(result.body.status).toEqual('OK');
     expect(result.status).toEqual(200);
   });
 });

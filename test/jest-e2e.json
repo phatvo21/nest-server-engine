@@ -6,6 +6,5 @@
     "^.+\\.(t|j)s$": "ts-jest"
   },
   "coverageDirectory": "./coverage",
-  "testEnvironment": "node",
-  "setupFilesAfterEnv":  ["jest-extended", "./setup.testing.ts"]
+  "testEnvironment": "node"
 }

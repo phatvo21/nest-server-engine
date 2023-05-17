@@ -4,11 +4,10 @@ version: '3'
 services:
   db:
     image: postgres:12-alpine
-    container_name: server-db
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: test
+      POSTGRES_DB: engine
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:

@@ -3,7 +3,7 @@
 module.exports = {
   verbose: true,
   moduleFileExtensions: ['js', 'json', 'ts'],
-  "rootDir": ".",
+  rootDir: ".",
   testRegex: '.spec.ts$',
   coverageThreshold: {
     global: {
@@ -29,7 +29,7 @@ module.exports = {
   },
   coverageDirectory: './coverage',
   testEnvironment: 'node',
-  roots: ['<rootDir>/src/'],
+  roots: ['<rootDir>/src/', '<rootDir>/test/'],
   moduleNameMapper: {},
   setupFilesAfterEnv: ['jest-extended', '<rootDir>/test/setup.testing.ts'],
 };

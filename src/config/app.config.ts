@@ -24,7 +24,7 @@ export default registerAs('app', () => ({
   port: +process.env.PORT ?? 4000,
   databaseUser: process.env.DB_USER ?? 'root',
   databasePassword: process.env.DB_PASSWORD ?? 'root',
-  databaseName: process.env.DB_NAME ?? 'test',
+  databaseName: process.env.DB_NAME ?? 'engine',
   databaseHost: process.env.DB_HOST ?? 'localhost',
   databasePort: +process.env.DB_PORT ?? 5432,
   databaseType: process.env.DB_TYPE ?? 'postgres',

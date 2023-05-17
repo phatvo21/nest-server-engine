@@ -13,11 +13,13 @@ module.exports = {
       },
     },
   ],
-  plugins: ['@typescript-eslint/eslint-plugin'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'no-loops', 'jest-formatting'],
   extends: [
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
+    'auto',
+    'plugin:jest-formatting/recommended',
   ],
 
   root: true,
@@ -25,6 +27,10 @@ module.exports = {
   rules: {
     'no-new': 0,
     'no-param-reassign': 0,
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+
+    'no-secrets/no-secrets': 'error',
     'max-classes-per-file': 0,
     'implicit-arrow-linebreak': 0,
     'object-curly-newline': 0,
@@ -39,7 +45,7 @@ module.exports = {
     'no-restricted-globals': 0,
     camelcase: 0,
     eqeqeq: ['error', 'smart'],
-    'max-lines': [2, { max: 1000, skipBlankLines: true }],
+    'max-lines': [2, { max: 2000, skipBlankLines: true }],
     'no-nested-ternary': 0,
     'no-console': [2, { allow: ['warn', 'error', 'info', 'trace'] }],
     'func-names': 0,
@@ -57,7 +63,7 @@ module.exports = {
       },
     ],
     quotes: 'off',
-    'func-style': "off",
+    'func-style': ['error', 'expression', { allowArrowFunctions: true }],
 
     'sort-imports': 'off',
 
@@ -73,21 +79,48 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-useless-constructor': 0,
     '@typescript-eslint/no-unsafe-return': 0,
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '_' }],
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '_' }],
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/await-thenable': 'off',
+    '@typescript-eslint/unbound-method': 'off',
 
     'import/order': 'off',
+    'import/no-extraneous-dependencies': [1, { devDependencies: true }],
     'import/namespace': 0,
     'import/prefer-default-export': 0,
     'import/extensions': ['off', 'never'],
     'lodash/import-scope': 0,
     'lodash/prefer-lodash-method': 0,
     'lodash/prefer-constant': 0,
+
+    'no-loops/no-loops': 'off',
+    'iterators/generators': 'off',
+
     'unicorn/prefer-node-protocol': 0,
     'unicorn/prefer-module': 0,
     'unicorn/no-array-callback-reference': 0,
     'unicorn/no-array-method-this-argument': 0,
     'unicorn/no-object-as-default-parameter': 0,
+    'unicorn/switch-case-braces': 0,
+    'pii/no-phone-number': 'off',
+    'sonarjs/no-duplicate-string': 'off',
+    'pii/no-ip': 'off',
+    'no-await-in-loop': 'off',
+    'no-restricted-syntax': 'off',
+    'unicorn/consistent-destructuring': 'off',
+    'lodash/prefer-noop': 'off',
+    'no-plusplus': 'off',
+
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+
+    'jest/expect-expect': [
+      'error',
+      {
+        assertFunctionNames: ['expect', 'request.**.expect', 'agent', 'agent.**.expect', '**.agent.**.expect'],
+      },
+    ],
   },
 };

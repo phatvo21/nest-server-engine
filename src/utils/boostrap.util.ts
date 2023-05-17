@@ -1,15 +1,15 @@
-import { getAdapter } from './fastify.util';
-import { getCommitHash } from './gitCommitHash.util';
-import { AddSwagger } from './swagger.util';
+import fastifyCookie from '@fastify/cookie';
+import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
-import fastifyCookie from '@fastify/cookie';
 import fastifyCsrf from 'fastify-csrf';
 import { Logger } from 'nestjs-pino';
 
 import { AllExceptionsFilter } from './all-exceptions.filter';
-import { ValidationPipe } from '@nestjs/common';
+import { getAdapter } from './fastify.util';
+import { getCommitHash } from './gitCommitHash.util';
+import { AddSwagger } from './swagger.util';
 
 export const bootstrap = async (appModule, swaggerConfig: { title: string; server: string }): Promise<void> => {
   const adapter: FastifyAdapter = getAdapter();
@@ -29,9 +29,6 @@ export const bootstrap = async (appModule, swaggerConfig: { title: string; serve
 
   await app.register(fastifyCookie);
   await app.register(fastifyCsrf);
-
-  console.log("DB HOST");
-  console.log(process.env.DB_HOST);
 
   app.useGlobalFilters(new AllExceptionsFilter());
   const appHost: string = config.get<string>('app.host', process.env.HOST);

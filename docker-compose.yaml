@@ -18,11 +18,11 @@ services:
       DB_HOST: db
       DB_USER: root
       DB_PASSWORD: root
-      DB_NAME: postgres
+      DB_NAME: engine
       DB_PORT: 5432
       DB_TYPE: postgres
       PORT: 4000
-      HOST: localhost
+      HOST: 0.0.0.0
       NODE_ENV: production
     ports:
       - 4000:3000
@@ -34,7 +34,7 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: test
+      POSTGRES_DB: engine
     volumes:
       - pgdata:/var/lib/postgresql/data
     expose:
