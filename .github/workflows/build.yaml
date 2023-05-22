@@ -30,8 +30,3 @@ jobs:
         with:
           name: engine
           path: ./dist/
-
-      - name: Publish NPM package
-        run: npm publish
-        env:
-          TOKEN: ${{ secrets.TOKEN }}
