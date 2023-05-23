@@ -1,6 +1,5 @@
+import { BaseModule } from '@app/engine';
 import { generateMockServer, generateRequest, RequestType, ServerType } from '@app/engine/utils/database-test.util';
-
-import { BaseModule } from '../src/modules';
 
 describe('HealthController (e2e)', () => {
   let server: ServerType;

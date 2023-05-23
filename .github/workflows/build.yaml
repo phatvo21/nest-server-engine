@@ -1,4 +1,4 @@
-name: "CI Build & Publish"
+name: "CI Build & Testing"
 
 on:
   push:
@@ -23,10 +23,5 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Build
-        run: npm run build
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: engine
-          path: ./dist/
+      - name: Tests
+        run: npm run test:compose
