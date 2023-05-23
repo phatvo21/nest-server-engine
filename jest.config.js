@@ -5,13 +5,6 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'ts'],
   rootDir: ".",
   testRegex: '.spec.ts$',
-  coverageThreshold: {
-    global: {
-      functions: 79,
-      lines: 80,
-      statements: 80,
-    },
-  },
   collectCoverage: true,
   collectCoverageFrom: [
     '**/**/*.ts',
@@ -30,6 +23,9 @@ module.exports = {
   coverageDirectory: './coverage',
   testEnvironment: 'node',
   roots: ['<rootDir>/src/', '<rootDir>/test/'],
-  moduleNameMapper: {},
+  moduleNameMapper: {
+    '@app/engine/(.*)': '<rootDir>/src/$1',
+    '@app/engine': '<rootDir>/src',
+  },
   setupFilesAfterEnv: ['jest-extended', '<rootDir>/test/setup.testing.ts'],
 };

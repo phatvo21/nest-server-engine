@@ -1,4 +1,4 @@
-import { HealthController } from '@app/engine/controllers/health.controller';
+import { HealthController } from '@app/engine';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('HealthController', () => {

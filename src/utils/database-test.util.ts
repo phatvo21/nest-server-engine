@@ -4,7 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
 import fastifyCsrf from 'fastify-csrf';
-import supertest from 'supertest';
+import * as supertest from 'supertest';
 
 import { getAdapter } from './fastify.util';
 
