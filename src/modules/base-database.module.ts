@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import path from 'path';
+import * as path from 'path';
 
 const entityPath: string = path.join(__dirname, 'src/db/entities/*.entity.js');
 const migrationPath: string = path.join(__dirname, 'src/db/migrations/*.js');
