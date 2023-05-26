@@ -37,6 +37,10 @@ export const bootstrap = async (appModule, swaggerConfig: { title: string; serve
   AddSwagger(app, swaggerConfig.title, swaggerConfig.server, commitHash);
 
   await app.startAllMicroservices();
+
+  // Starts listening for shutdown hooks
+  app.enableShutdownHooks();
+
   await app.listen(appPort, appHost);
   console.info(`Swagger Url: ${appHost}:${appPort}${swaggerConfig.server}`);
 };

@@ -113,6 +113,7 @@ module.exports = {
     'unicorn/consistent-destructuring': 'off',
     'lodash/prefer-noop': 'off',
     'no-plusplus': 'off',
+    'unicorn/import-style': 0,
 
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 
