@@ -1,12 +1,13 @@
 import { RedisCreateOptions, RedisInterface } from '@app/engine/clients/redis/redis.types';
 import { EngineError } from '@app/engine/engine-errors';
-import { DynamicModule } from '@nestjs/common';
+import { DynamicModule, Module } from '@nestjs/common';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Cluster, NodeRole, Redis as RedisClient, RedisOptions } from 'ioredis';
 
 // eslint-disable-next-line import/no-mutable-exports
 export let redisClient: undefined | RedisClient | Cluster;
 
+@Module({})
 export class Redis {
   /**
    * We use a proxy to extend the Redis behavior and allow initialization of the client only when needed while keeping the same interface

@@ -1,6 +1,6 @@
 {
   "name": "nest-server-engine",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Framework used to develop Backend services with NestJS. This package ships with a lot of features to standardize the creation of services, letting you focus on the business logic.",
   "private": false,
   "engines": {
@@ -52,6 +52,7 @@
   "dependencies": {
     "@fastify/cookie": "^6.0.0",
     "@fastify/static": "^6.10.1",
+    "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
@@ -59,6 +60,7 @@
     "@nestjs/platform-fastify": "^9.4.0",
     "@nestjs/swagger": "^6.3.0",
     "@nestjs/typeorm": "^9.0.1",
+    "axios": "^1.4.0",
     "child_process": "^1.0.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
